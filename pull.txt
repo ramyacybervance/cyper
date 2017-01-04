@@ -1,0 +1,94 @@
+Using username "bitnami".
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-95-generic x86_64)
+       ___ _ _                   _
+      | _ |_) |_ _ _  __ _ _ __ (_)
+      | _ \ |  _| ' \/ _` | '  \| |
+      |___/_|\__|_|_|\__,_|_|_|_|_|
+
+  *** Welcome to the Bitnami Moodle 3.1.1-2 ***
+  *** Documentation:  https://docs.bitnami.com/aws/apps/moodle ***
+  *** Bitnami Wiki:   https://wiki.bitnami.com/ ***
+  *** Bitnami Forums: https://community.bitnami.com/ ***
+Last login: Tue Dec 27 14:35:34 2016 from 61.246.224.82
+bitnami@ip-10-0-0-58:~$ sudo bash
+root@ip-10-0-0-58:~# cd /opt/bitnami/apps
+root@ip-10-0-0-58:/opt/bitnami/apps# mkdir deploy
+root@ip-10-0-0-58:/opt/bitnami/apps# su ramya
+No passwd entry for user 'ramya'
+root@ip-10-0-0-58:/opt/bitnami/apps# adduser ramya
+Adding user `ramya' ...
+Adding new group `ramya' (1003) ...
+Adding new user `ramya' (1002) with group `ramya' ...
+Creating home directory `/home/ramya' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the user information for ramya
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] y
+root@ip-10-0-0-58:/opt/bitnami/apps# su ramya
+ramya@ip-10-0-0-58:/opt/bitnami/apps$ cd
+ramya@ip-10-0-0-58:~$ mkdir .ssh && chmod 700 .ssh
+ramya@ip-10-0-0-58:~$ touch .ssh/authorized_keys && chmod 600 .ssh/authorized_ke                                                                                        ys
+ramya@ip-10-0-0-58:~$ cat /tmp/id_rsa.ramyacybervance.pub
+cat: /tmp/id_rsa.ramyacybervance.pub: No such file or directory
+ramya@ip-10-0-0-58:~$ cat /tmp/id_rsa.ramya.pub
+cat: /tmp/id_rsa.ramya.pub: No such file or directory
+ramya@ip-10-0-0-58:~$ cat /tmp/id_rsa.bitnami.pub
+cat: /tmp/id_rsa.bitnami.pub: No such file or directory
+ramya@ip-10-0-0-58:~$ cd /opt/bitnami/apps/
+ramya@ip-10-0-0-58:/opt/bitnami/apps$ mkdir cyper.git
+mkdir: cannot create directory ‘cyper.git’: Permission denied
+ramya@ip-10-0-0-58:/opt/bitnami/apps$ sudo mkdir cyper.git
+[sudo] password for ramya:
+ramya is not in the sudoers file.  This incident will be reported.
+ramya@ip-10-0-0-58:/opt/bitnami/apps$ sudo bash
+[sudo] password for ramya:
+ramya is not in the sudoers file.  This incident will be reported.
+ramya@ip-10-0-0-58:/opt/bitnami/apps$ exit
+exit
+root@ip-10-0-0-58:/opt/bitnami/apps# sudo bash
+root@ip-10-0-0-58:/opt/bitnami/apps# mkdir cyper.git
+root@ip-10-0-0-58:/opt/bitnami/apps# cd cyper.git
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git init --bare
+Initialized empty Git repository in /opt/bitnami/apps/cyper.git/
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git add
+fatal: This operation must be run in a work tree
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git init
+Initialized empty Git repository in /opt/bitnami/apps/cyper.git/.git/
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git add .
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git commit -m 'initial commit'
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'root@ip-10-0-0-58.(none)')
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# gitremote add origin git@github.c                                                                                        om:ramyacybervance/cyper.git
+gitremote: command not found
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git remote add origin git@github.com:ramyacybervance/cyper.git
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git push origin master
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git config --global user.email "ramya.k@cybervancesystems.com"
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git remote add origin git@github.com:ramyacybervance/cyper.git
+fatal: remote origin already exists.
+root@ip-10-0-0-58:/opt/bitnami/apps/cyper.git# git push origin master
+Permission denied (publickey).
+fatal: Could not read from remote repository.
